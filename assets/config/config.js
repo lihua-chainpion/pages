@@ -5,7 +5,7 @@ function getConfig() {
     ittcContract: {
       address: '0x518955b9346ee238e2c0dbad7021c7e59b355485',
       abi: getIttcAbi(),
-      inviteBaseUrl: 'https://lihua-chainpion.github.io/pages/index.html?inviter=',
+      inviteBaseUrl: 'https://lihua-chainpion.github.io/pages/#/?inviter=',
     },
     usdtContract: {
       address: '0xd014cd2dea75a1e989be84af0291ddf7e427f64d',
