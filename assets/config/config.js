@@ -3,12 +3,12 @@ function getConfig() {
     chainId: '0x5',
     chainName: 'Goerli Test Network',
     ittcContract: {
-      address: '0xeecc47bfc4fddefa6c6b5310b05ced18d5fbc255',
+      address: '0xC1Cd179Fcd483326eFD9bDaB6E18d0A19E66F9f4',
       abi: getIttcAbi(),
       inviteBaseUrl: 'https://lihua-chainpion.github.io/pages/index.html?inviter=',
     },
     usdtContract: {
-      address: '0xF3A1e1a81C62BF26970a1461e2b40a0f51F1A88f',
+      address: '0x68e1f13a46bc104a2cb0a99b06cf0b8640e485a1',
       abi: getUsdtAbi(),
     },
   }
