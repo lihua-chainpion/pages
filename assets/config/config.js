@@ -3,7 +3,7 @@ function getConfig() {
     chainId: '0x5',
     chainName: 'Goerli Test Network',
     ittcContract: {
-      address: '0xC1Cd179Fcd483326eFD9bDaB6E18d0A19E66F9f4',
+      address: '0x78a6fbf2c5f9cbbb5875dc7b5fdcc0752173ffe4',
       abi: getIttcAbi(),
       inviteBaseUrl: 'https://lihua-chainpion.github.io/pages/index.html?inviter=',
     },
