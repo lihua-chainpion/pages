@@ -1,4 +1,4 @@
-function getIttcAbi() {
+function getIttiAbi() {
 	return [{
 		"inputs": [],
 		"name": "_fixedDelegatePrice",

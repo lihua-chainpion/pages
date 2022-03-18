@@ -67,21 +67,21 @@ class UsdtContract extends BaseContract {
   }
 }
 
-class IttcContract extends BaseContract {
+class IttiContract extends BaseContract {
   constructor() {
     super();
     const {
       abi,
       address
-    } = config.ittcContract;
-    IttcContract.prototype.contract = _NewContract(abi, address);
+    } = config.ittiContract;
+    IttiContract.prototype.contract = _NewContract(abi, address);
   }
 
   async getUsdtApprove(amount) {
     if (!_usdtContract) {
       _usdtContract = new UsdtContract();
     }
-    const {address} = config.ittcContract;
+    const {address} = config.ittiContract;
     return _usdtContract.approve(address, amount);
   }
 
@@ -105,7 +105,7 @@ class IttcContract extends BaseContract {
         from: ethereum.selectedAddress,
       });
     }catch(err){
-      console.error('ittcContract.qualify err:', err);
+      console.error('ittiContract.qualify err:', err);
       if (err.code != 4001) {
         return Promise.reject(new Error('The subscription failed, please check the transaction details from the blockchain browser')); // 认购失败，请从区块链浏览器查看交易详情
       }
@@ -114,7 +114,7 @@ class IttcContract extends BaseContract {
   }
 
   get inviteLink() {
-    const {inviteBaseUrl} = config.ittcContract;
+    const {inviteBaseUrl} = config.ittiContract;
     return `${inviteBaseUrl}${ethereum.selectedAddress}`;
   }
 
@@ -133,7 +133,7 @@ class IttcContract extends BaseContract {
         from: ethereum.selectedAddress,
       });
     }catch(err){
-      console.error('ittcContract.exchangeByUsdt err:', err);
+      console.error('ittiContract.exchangeByUsdt err:', err);
       if (err.code == 4001) {
         return Promise.resolve(false);
       }

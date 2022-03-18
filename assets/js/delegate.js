@@ -5,8 +5,8 @@
 
 class DelegatePage {
   constructor() {
-    if (!this.ittc) {
-      DelegatePage.prototype.ittc = new IttcContract();
+    if (!this.itti) {
+      DelegatePage.prototype.itti = new IttiContract();
     }
   }
 
@@ -48,7 +48,7 @@ class DelegatePage {
     }
     Utils.setBtnLoading(btnClassname);
     try {
-      await this.ittc.qualify(inviter);
+      await this.itti.qualify(inviter);
     } catch (err) {
       new CommonPage().showError(err.message || 'Subscription failed')
       console.error('getQualification err:', err)
@@ -58,7 +58,7 @@ class DelegatePage {
   }
 
   inviteNow() {
-    const inviteLink = this.ittc.inviteLink;
+    const inviteLink = this.itti.inviteLink;
     Utils.copyText('invite-now-btn', inviteLink).then(res => {
       new CommonPage().showSuccess(inviteLink, 'Invitation link copied!');
     });

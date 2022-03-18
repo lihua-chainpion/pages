@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Webpixels">
-    <title>EXCHANGE – USDT for ITTC</title>
+    <title>EXCHANGE – USDT for ITTI</title>
     <!-- Preloader -->
     <style>
         @keyframes hidePreloader {
@@ -21,7 +21,11 @@
             }
         }
 
-        body>div.preloader {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body > div.preloader {
             position: fixed;
             background: white;
             width: 100%;
@@ -36,7 +40,7 @@
             justify-content: center;
         }
 
-        body:not(.loaded)>div.preloader {
+        body:not(.loaded) > div.preloader {
             opacity: 1;
         }
 
@@ -44,16 +48,16 @@
             overflow: hidden;
         }
 
-        body.loaded>div.preloader {
+        body.loaded > div.preloader {
             animation: hidePreloader .5s linear .5s forwards;
         }
     </style>
     <script>
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                document.querySelector('body').classList.add('loaded');
-            }, 300);
-        });
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.querySelector('body').classList.add('loaded');
+        }, 300);
+      });
     </script>
     <!-- Favicon -->
     <link rel="icon" href="assets/img/brand/favicon.png" type="image/png"><!-- Font Awesome -->
@@ -63,254 +67,337 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+<!-- Preloader -->
+<div class="preloader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
     </div>
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
-            <div class="modal-content bg-dark-dark">
-                <div class="modal-body">
-                    <!-- Text -->
-                    <p class="text-sm text-white mb-3">
-                        We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
-                    </p>
-                    <!-- Buttons -->
-                    <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
-                    <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
-                </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false"
+     aria-labelledby="modal-cookies" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+        <div class="modal-content bg-dark-dark">
+            <div class="modal-body">
+                <!-- Text -->
+                <p class="text-sm text-white mb-3">
+                    We use cookies so that our themes work for you. By using our website, you agree to our use of
+                    cookies.
+                </p>
+                <!-- Buttons -->
+                <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+                <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
-    <!-- Go Pro -->
+</div>
+<!-- Go Pro -->
 <!--    <a href="javascript:void(0);" class="btn btn-block btn-dark text-truncate rounded-0 py-2 d-none d-lg-block" style="z-index: 1000;">-->
 <!--        <strong>This is a free demo.</strong> Click here to open the full version →-->
 <!--    </a>-->
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
-            <!-- Brand -->
-            <a class="navbar-brand" href="index.html">
-                <img alt="Image placeholder" src="assets/img/brand/dark.svg" id="navbar-logo">
-                <img alt="Image placeholder" src="assets/img/brand/exchange.svg">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">
+            <img style="background-color:#000;" alt="Image placeholder" src="assets/img/exchange/itti_logo.png" id="navbar-logo">
+            <span class="text-dark">ITTI</span>
+        </a>
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+            </ul>
+            <!-- Button -->
+            <a class="connect-wallet navbar-btn btn btn-sm btn-primary d-none d-lg-inline-block ml-3"
+               href="javascript:void(0);">
+                Connect Wallet
             </a>
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="login.html">Exchange</a>
-                    </li>
-                </ul>
-                <!-- Button -->
-                <a class="connect-wallet navbar-btn btn btn-sm btn-primary d-none d-lg-inline-block ml-3" href="javascript:void(0);">
+            <a style="display: none !important;"
+               class="wallet-account navbar-btn btn btn-sm btn-warning d-none d-lg-inline-block ml-3"
+               href="javascript:void(0);">
+                0x8C19...3722
+            </a>
+            <!-- Mobile button -->
+            <div class="d-lg-none text-center">
+                <a href="javascript:void(0);" class="connect-wallet btn btn-block btn-sm btn-warning">
                     Connect Wallet
                 </a>
-                <a style="display: none !important;" class="wallet-account navbar-btn btn btn-sm btn-warning d-none d-lg-inline-block ml-3" href="javascript:void(0);">
-                    0x8C19...3722
+                <a style="display: none;" href="javascript:void(0);"
+                   class="wallet-account btn btn-block btn-sm btn-warning">
+                    Connect Wallet
                 </a>
-                <!-- Mobile button -->
-                <div class="d-lg-none text-center">
-                    <a href="javascript:void(0);" class="connect-wallet btn btn-block btn-sm btn-warning">
-                        Connect Wallet
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Main content -->
+<section class="slice py-7">
+    <div class="container">
+        <div class="row row-grid align-items-center">
+            <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                <!-- Image -->
+                <figure class="w-100">
+                    <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.svg"
+                         class="img-fluid mw-md-120">
+                </figure>
+            </div>
+            <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                <!-- Heading -->
+                <h1 class="display-4 text-center text-md-left mb-3">
+                    It's time to amplify your <strong class="text-primary">business</strong>
+                </h1>
+                <!-- Text -->
+                <p class="lead text-center text-md-left text-muted">
+                    A lightweight, convenient website to exchange ITTI.
+                </p>
+                <!-- Buttons -->
+                <div class="text-center text-md-left mt-5">
+                    <a href="#exchange-itti-section" class="btn btn-primary btn-icon">
+                        <span class="btn-inner--text">Exchange Itti</span>
+                        <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
                     </a>
-                    <a style="display: none;" href="javascript:void(0);" class="wallet-account btn btn-block btn-sm btn-warning">
-                        Connect Wallet
-                    </a>
+                    <a href="javascript:void(0);"
+                       class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn">Become a partner</a>
+                </div>
+                <!-- Text -->
+                <p class="lead text-center text-md-left text-muted mt-5 d-lg-none">
+                    Have you not joined the whitelist for subscription yet?
+                </p>
+                <!-- Buttons -->
+                <div class="text-center text-md-left mt-2 d-lg-none">
+                    <a href="javascript:void(0);" class="btn btn-neutral btn-icon buy-eligibility-btn">Buy
+                        eligibility</a>
                 </div>
             </div>
         </div>
-    </nav>
-    <!-- Main content -->
-    <section class="slice py-7">
-        <div class="container">
-            <div class="row row-grid align-items-center">
-                <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
-                    <!-- Image -->
-                    <figure class="w-100">
-                        <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.svg" class="img-fluid mw-md-120">
-                    </figure>
-                </div>
-                <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
-                    <!-- Heading -->
-                    <h1 class="display-4 text-center text-md-left mb-3">
-                        It's time to amplify your <strong class="text-primary">business</strong>
-                    </h1>
-                    <!-- Text -->
-                    <p class="lead text-center text-md-left text-muted">
-                        A lightweight, convenient website to exchange ITTC.
-                    </p>
-                    <!-- Buttons -->
-                    <div class="text-center text-md-left mt-5">
-                        <a href="login.html" class="btn btn-primary btn-icon" target="_blank">
-                            <span class="btn-inner--text">Exchange Ittc</span>
-                            <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
-                        </a>
-                        <a href="javascript:void(0);" class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn">Buy eligibility</a>
-                    </div>
-                    <!-- Text -->
-                    <p class="lead text-center text-md-left text-muted mt-5 d-lg-none">
-                        Have you not joined the whitelist for subscription yet?
-                    </p>
-                    <!-- Buttons -->
-                    <div class="text-center text-md-left mt-2 d-lg-none">
-                        <a href="javascript:void(0);" class="btn btn-neutral btn-icon buy-eligibility-btn">Buy eligibility</a>
+    </div>
+</section>
+<section id="exchange-itti-section" class="slice pt-lg-6 pb-0 pb-lg-6 bg-section-secondary">
+    <div class="container">
+        <!-- Title -->
+        <!-- Section title -->
+        <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-6">
+                <!--                    <span class="badge badge-soft-success badge-pill badge-lg">-->
+                <!--                        Get started-->
+                <!--                    </span>-->
+                <h2 class=" mt-4">Exchange USDT for ITTI</h2>
+                <!--                <div class="mt-2">-->
+                <!--                    <p class="lead lh-180">Use Atomic Design to build components, sections and, then, pages.</p>-->
+                <!--                </div>-->
+            </div>
+        </div>
+        <!-- Card -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body pb-5">
+                        <div class="pt-4 pb-3">
+                            <form>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="form-control-label">USDT amount</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                  style="width: 50px;height: 50px;padding: 0.25rem;">
+                                                <img style="width: 100%;height: 100%;object-fit: contain;"
+                                                     src="assets/img/exchange/usdt_logo.png">
+                                            </span>
+                                            </div>
+                                            <input type="number" class="form-control" id="usdt-amount"
+                                                   placeholder="Enter the number of usdt">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="form-control-label">Estimated ITTI amount</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                            <span class="input-group-text"
+                                                  style="width: 50px;height: 50px;padding: 0.25rem;">
+                                                <img style="width: 100%;height: 100%;object-fit: contain;"
+                                                     src="assets/img/exchange/itti_goldcion.png">
+                                            </span>
+                                            </div>
+                                            <input type="number" class="form-control" id="itti-amount"
+                                                   placeholder="Enter the number of estimated itti">
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 col-md-3">
+                                        <button type="button" class="btn btn-block btn-primary exchange-confirm-btn">
+                                            Confirm
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--                        <h5 class="h4 lh-130 mb-3">Unleash you creativity</h5>-->
+                        <p class="mb-0" style="color: #E59D37">*Please note that due to price fluctuations, the estimated itti amount does not represent the final purchased itti amount.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="slice slice-lg bg-section-dark pt-5 pt-lg-8">
-        <!-- SVG separator -->
-        <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
-            <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class="">
+    </div>
+</section>
+<section class="slice slice-lg bg-section-dark pt-5 pt-lg-8">
+    <!-- SVG separator -->
+    <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+        <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100"
+             style="enable-background:new 0 0 2560 100;" xml:space="preserve" class="">
                 <polygon points="2560 0 2560 100 0 100"></polygon>
             </svg>
-        </div>
-        <!-- Container -->
-        <div class="container position-relative zindex-100">
-            <div class="col">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 text-center">
-                        <div class="mt-4 mb-6">
-                            <h2 class="h1 text-white">
-                                Are you ready to grow faster?
-                            </h2>
-                            <h4 class="text-white mt-3">Create your invite link</h4>
-                            <!-- Play button -->
-                            <a href="javascript:void(0);" data-clipboard-text="abc" class="btn btn-primary btn-icon mt-4 invite-now-btn">Invite now</a>
-                        </div>
+    </div>
+    <!-- Container -->
+    <div class="container position-relative zindex-100">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-md-10 text-center">
+                    <div class="mt-4 mb-6">
+                        <h2 class="h1 text-white">
+                            Invite Your Friend
+                        </h2>
+                        <h4 class="text-white mt-3">TODO User Invitation Link</h4>
+                        <!-- Play button -->
+<!--                        <a href="javascript:void(0);" data-clipboard-text="abc"-->
+<!--                           class="btn btn-primary btn-icon mt-4 invite-now-btn">Invite now</a>-->
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <footer class="position-relative" id="footer-main">
-        <div class="footer pt-lg-7 footer-dark bg-dark">
-            <!-- SVG shape -->
-            <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
-                <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class=" fill-section-secondary">
+    </div>
+</section>
+<footer class="position-relative" id="footer-main">
+    <div class="footer pt-lg-7 footer-dark bg-dark">
+        <!-- SVG shape -->
+        <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+            <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px"
+                 viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve"
+                 class=" fill-section-secondary">
                     <polygon points="2560 0 2560 100 0 100"></polygon>
                 </svg>
+        </div>
+        <!-- Footer -->
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-lg-12 col-sm-10 mb-5 mb-lg-0">
+                    <!-- Theme's logo -->
+                    <a href="index.html">
+                        <img style="width: 40px;" alt="Image placeholder" src="assets/img/exchange/itti_logo.png" id="footer-logo">
+                        <span class="text-white">ITTI</span>
+<!--                        <img style="width: 40px;" alt="Image placeholder" src="assets/img/brand/exchange.svg">-->
+                    </a>
+                    <!-- Webpixels' mission -->
+                    <!--                        <p class="mt-4 text-sm opacity-8 pr-lg-4">Webpixels attempts to bring the best development experience to designers and developers by offering the tools needed for having a quick and solid start in most web projects.</p>-->
+                    <!-- Social -->
+                    <!--                        <ul class="nav mt-4">-->
+                    <!--                            <li class="nav-item">-->
+                    <!--                                <a class="nav-link pl-0" href="https://dribbble.com/webpixels" target="_blank">-->
+                    <!--                                    <i class="fab fa-dribbble"></i>-->
+                    <!--                                </a>-->
+                    <!--                            </li>-->
+                    <!--                            <li class="nav-item">-->
+                    <!--                                <a class="nav-link" href="https://github.com/webpixels" target="_blank">-->
+                    <!--                                    <i class="fab fa-github"></i>-->
+                    <!--                                </a>-->
+                    <!--                            </li>-->
+                    <!--                            <li class="nav-item">-->
+                    <!--                                <a class="nav-link" href="https://www.instagram.com/webpxs" target="_blank">-->
+                    <!--                                    <i class="fab fa-instagram"></i>-->
+                    <!--                                </a>-->
+                    <!--                            </li>-->
+                    <!--                            <li class="nav-item">-->
+                    <!--                                <a class="nav-link" href="https://www.facebook.com/webpixels" target="_blank">-->
+                    <!--                                    <i class="fab fa-facebook"></i>-->
+                    <!--                                </a>-->
+                    <!--                            </li>-->
+                    <!--                        </ul>-->
+                </div>
+                <!--                    <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">-->
+                <!--                        <h6 class="heading mb-3">Account</h6>-->
+                <!--                        <ul class="list-unstyled">-->
+                <!--                            <li><a href="#">Profile</a></li>-->
+                <!--                            <li><a href="#">Settings</a></li>-->
+                <!--                            <li><a href="#">Billing</a></li>-->
+                <!--                            <li><a href="#">Notifications</a></li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
+                <!--                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">-->
+                <!--                        <h6 class="heading mb-3">About</h6>-->
+                <!--                        <ul class="list-unstyled">-->
+                <!--                            <li><a href="#">Services</a></li>-->
+                <!--                            <li><a href="#">Pricing</a></li>-->
+                <!--                            <li><a href="#">Contact</a></li>-->
+                <!--                            <li><a href="#">Careers</a></li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
+                <!--                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">-->
+                <!--                        <h6 class="heading mb-3">Company</h6>-->
+                <!--                        <ul class="list-unstyled">-->
+                <!--                            <li><a href="#">Community</a></li>-->
+                <!--                            <li><a href="#">Help center</a></li>-->
+                <!--                            <li><a href="#">Support</a></li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
             </div>
-            <!-- Footer -->
-            <div class="container pt-4">
-                <div class="row">
-                    <div class="col-lg-12 col-sm-10 mb-5 mb-lg-0">
-                        <!-- Theme's logo -->
-                        <a href="index.html">
-                            <img alt="Image placeholder" src="assets/img/brand/light.svg" id="footer-logo">
-                            <img style="width: 40px;" alt="Image placeholder" src="assets/img/brand/exchange.svg">
-                        </a>
-                        <!-- Webpixels' mission -->
-<!--                        <p class="mt-4 text-sm opacity-8 pr-lg-4">Webpixels attempts to bring the best development experience to designers and developers by offering the tools needed for having a quick and solid start in most web projects.</p>-->
-                        <!-- Social -->
-<!--                        <ul class="nav mt-4">-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link pl-0" href="https://dribbble.com/webpixels" target="_blank">-->
-<!--                                    <i class="fab fa-dribbble"></i>-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="https://github.com/webpixels" target="_blank">-->
-<!--                                    <i class="fab fa-github"></i>-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="https://www.instagram.com/webpxs" target="_blank">-->
-<!--                                    <i class="fab fa-instagram"></i>-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="https://www.facebook.com/webpixels" target="_blank">-->
-<!--                                    <i class="fab fa-facebook"></i>-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                        </ul>-->
+            <hr class="divider divider-fade divider-dark my-4">
+            <div class="row align-items-center justify-content-md-between pb-4">
+                <div class="col-md-6">
+                    <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                        &copy; <span class="my-copyright-year">2022</span> <a href="https://webpixels.io"
+                                                                              class="font-weight-bold" target="_blank">Webpixels</a>.
+                        All rights reserved
                     </div>
-<!--                    <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">-->
-<!--                        <h6 class="heading mb-3">Account</h6>-->
-<!--                        <ul class="list-unstyled">-->
-<!--                            <li><a href="#">Profile</a></li>-->
-<!--                            <li><a href="#">Settings</a></li>-->
-<!--                            <li><a href="#">Billing</a></li>-->
-<!--                            <li><a href="#">Notifications</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">-->
-<!--                        <h6 class="heading mb-3">About</h6>-->
-<!--                        <ul class="list-unstyled">-->
-<!--                            <li><a href="#">Services</a></li>-->
-<!--                            <li><a href="#">Pricing</a></li>-->
-<!--                            <li><a href="#">Contact</a></li>-->
-<!--                            <li><a href="#">Careers</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">-->
-<!--                        <h6 class="heading mb-3">Company</h6>-->
-<!--                        <ul class="list-unstyled">-->
-<!--                            <li><a href="#">Community</a></li>-->
-<!--                            <li><a href="#">Help center</a></li>-->
-<!--                            <li><a href="#">Support</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
                 </div>
-                <hr class="divider divider-fade divider-dark my-4">
-                <div class="row align-items-center justify-content-md-between pb-4">
-                    <div class="col-md-6">
-                        <div class="copyright text-sm font-weight-bold text-center text-md-left">
-                            &copy; <span class="my-copyright-year">2022</span> <a href="https://webpixels.io" class="font-weight-bold" target="_blank">Webpixels</a>. All rights reserved
-                        </div>
-                    </div>
-<!--                    <div class="col-md-6">-->
-<!--                        <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="#">-->
-<!--                                    Terms-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="#">-->
-<!--                                    Privacy-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a class="nav-link" href="#">-->
-<!--                                    Cookies-->
-<!--                                </a>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-                </div>
+                <!--                    <div class="col-md-6">-->
+                <!--                        <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">-->
+                <!--                            <li class="nav-item">-->
+                <!--                                <a class="nav-link" href="#">-->
+                <!--                                    Terms-->
+                <!--                                </a>-->
+                <!--                            </li>-->
+                <!--                            <li class="nav-item">-->
+                <!--                                <a class="nav-link" href="#">-->
+                <!--                                    Privacy-->
+                <!--                                </a>-->
+                <!--                            </li>-->
+                <!--                            <li class="nav-item">-->
+                <!--                                <a class="nav-link" href="#">-->
+                <!--                                    Cookies-->
+                <!--                                </a>-->
+                <!--                            </li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
             </div>
         </div>
-    </footer>
-    <!-- Core JS  -->
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/svg-injector/dist/svg-injector.min.js"></script>
-    <script src="assets/libs/feather-icons/dist/feather.min.js"></script>
-    <script src="assets/libs/web3.min.js"></script>
-    <script src="assets/libs/validator.min.js"></script>
-    <!-- Quick JS -->
-    <script src="assets/js/quick-website.js"></script>
-    <script src="assets/js/common.js"></script>
-    <script src="assets/js/delegate.js"></script>
-    <!-- Feather Icons -->
-    <script>
-        feather.replace({
-            'width': '1em',
-            'height': '1em'
-        })
-    </script>
+    </div>
+</footer>
+<!-- Core JS  -->
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+<script src="assets/libs/feather-icons/dist/feather.min.js"></script>
+<script src="assets/libs/web3.min.js"></script>
+<script src="assets/libs/validator.min.js"></script>
+<!-- Quick JS -->
+<script src="assets/js/quick-website.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/delegate.js"></script>
+<!-- Feather Icons -->
+<script>
+  feather.replace({
+    'width': '1em',
+    'height': '1em'
+  })
+</script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 (function importLibs() {
   const bd = $('body')
-  bd.append(`<script src="assets/config/abi/ittcAbi.js"></script>`);
+  bd.append(`<script src="assets/config/abi/ittiAbi.js"></script>`);
   bd.append(`<script src="assets/config/abi/usdtAbi.js"></script>`);
   bd.append(`<script src="assets/config/config.js"></script>`);
   bd.append(`<script src="assets/js/contract.js"></script>`);

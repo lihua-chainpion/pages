@@ -1,8 +1,8 @@
 class ExchangePage {
 
   constructor() {
-    if (!this.ittc) {
-      ExchangePage.prototype.ittc = new IttcContract();
+    if (!this.itti) {
+      ExchangePage.prototype.itti = new IttiContract();
     }
     if (!this.usdt) {
       ExchangePage.prototype.usdt = new UsdtContract();
@@ -40,7 +40,7 @@ class ExchangePage {
     Utils.setBtnLoading(btnClassname);
     try {
       const usdtAmount = $('#input-amount').val();
-      await this.ittc.exchangeByUsdt(usdtAmount);
+      await this.itti.exchangeByUsdt(usdtAmount);
     } catch (err) {
       if (err && err.code != 4001) {
         new CommonPage().showError(err.message || 'Subscription failed')
