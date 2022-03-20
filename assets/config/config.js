@@ -2,6 +2,7 @@ function getConfig() {
   return {
     chainId: '0x5',
     chainName: 'Goerli Test Network',
+    browserBaseUrl: 'https://goerli.etherscan.io/tx/',
     ittiContract: {
       address: '0xe1b93d50A65Eceb7362eE1faCC89Cc249284a347',
       abi: getIttiAbi(),

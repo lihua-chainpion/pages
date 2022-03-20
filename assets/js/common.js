@@ -77,7 +77,7 @@ class CommonPage {
       this.appendModal();
     }
     $('#myModal #myModalLabel').text(errTitle || 'Error!');
-    $('#myModal .modal-body').text(errMessage);
+    $('#myModal .modal-body').html(errMessage);
     this.myModal.show();
   }
 }

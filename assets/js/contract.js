@@ -107,7 +107,7 @@ class IttiContract extends BaseContract {
     }catch(err){
       console.error('ittiContract.qualify err:', err);
       if (err.code != 4001) {
-        return Promise.reject(new Error('The subscription failed, please check the transaction details from the blockchain browser')); // 认购失败，请从区块链浏览器查看交易详情
+        return Promise.reject(err);
       }
       return Promise.resolve(false);
     }

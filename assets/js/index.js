@@ -46,7 +46,16 @@ class IndexPage {
       const res = await this.itti.qualify(inviter);
       res !== false && new CommonPage().showSuccess('You are a DAO General now!');
     } catch (err) {
-      new CommonPage().showError(err.message || 'Subscription failed')
+      if (err && err.receipt && err.receipt.status === false) {
+        const {browserBaseUrl} = getConfig();
+        const errMsg = `
+          The subscription failed, please check the transaction details from the blockchain browser
+          <a href="${browserBaseUrl + err.receipt.transactionHash}" target="_blank"> ${err.receipt.transactionHash} </a>
+        `
+        new CommonPage().showError(errMsg || 'Subscription failed');
+      } else {
+        new CommonPage().showError(err.message || 'Subscription failed');
+      }
       console.error('getQualification err:', err)
     } finally {
       Utils.resetBtnLoading(btnClassname);
