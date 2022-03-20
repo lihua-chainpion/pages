@@ -71,8 +71,8 @@ async function initDaoGeneralPage() {
 
   const isWhite = await daoPage.itti.isWhite();
   if (isWhite) {
-    $('.not-show-in-white').attr('style', 'display: none !important');
-    $('.only-show-in-white').show();
+    // $('.not-show-in-white').attr('style', 'display: none !important');
+    // $('.only-show-in-white').show();
     $('.invitation-section').show();
     new CommonPage().setInvitationLink('dao');
   }

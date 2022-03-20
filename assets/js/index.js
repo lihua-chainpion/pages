@@ -60,23 +60,32 @@ class IndexPage {
   }
 }
 
-$(document).ready(function () {
+async function initHomePage() {
   const btnConnect = $('.connect-wallet');
   const btnBuy = $('.buy-eligibility-btn');
   const btnInvite = $('.invite-now-btn');
 
   const indexPage = new IndexPage();
   indexPage.connect();
-  new CommonPage().setInvitationLink('home');
+
+  const isWhite = await indexPage.itti.isWhite();
+  if (isWhite) {
+    $('.invitation-section').show();
+    new CommonPage().setInvitationLink('home');
+  }
 
   btnConnect.on('click', function () {
     indexPage.connect();
   });
-  /*btnBuy.on('click', function () {
+  btnBuy.on('click', function () {
     const {inviter} = Utils.parseSearch();
     indexPage.getQualification(inviter);
-  });*/
+  });
   btnInvite.on('click', function () {
     indexPage.inviteNow();
   });
+}
+
+$(document).ready(function () {
+  initHomePage();
 });
