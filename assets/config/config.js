@@ -4,7 +4,7 @@ function getConfig() {
     chainName: 'Goerli Test Network',
     browserBaseUrl: 'https://goerli.etherscan.io/tx/',
     ittiContract: {
-      address: '0x6782e26405Bd682B58499ef462C3fE90C6329287',
+      address: '0xc99Ff4aE82e525C99FCFa1053b7b96acDFaAC2De',
       abi: getIttiAbi(),
       homeInviteBaseUrl: 'https://lihua-chainpion.github.io/pages/index.html?inviter=',
       daoInviteBaseUrl: 'https://lihua-chainpion.github.io/pages/dao-general.html?inviter=',

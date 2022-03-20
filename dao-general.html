@@ -128,13 +128,46 @@
                href="javascript:void(0);">
                 Connect Wallet
             </a>
-            <a style="display: none !important;"
+            <li style="display: none !important;" class="wallet-account-li d-none d-md-block nav-item dropdown dropdown-animate" data-toggle="hover">
+                <!--<a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>-->
+                <a
+                        class="wallet-account navbar-btn btn btn-sm btn-warning d-none d-lg-inline-block ml-3"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        href="javascript:void(0);">
+                    0x0000...0000
+                </a>
+                <div class="dropdown-menu dropdown-menu-single">
+                    <div class="dropdown-divider"></div>
+                    <a href="javascript:void(0);" onclick="CommonPage.logout()" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+            <!--<a style="display: none !important;"
                class="wallet-account navbar-btn btn btn-sm btn-warning d-none d-lg-inline-block ml-3"
                href="javascript:void(0);">
                 0x0000...0000
-            </a>
+            </a>-->
             <!-- Mobile button -->
+            <div id="mobile-logout" class="d-lg-none only-show-on-mobile-login">
+                <a href="javascript:void(0);" onclick="CommonPage.logout()" class="dropdown-item">Logout</a>
+            </div>
             <div class="d-lg-none text-center">
+                <a href="javascript:void(0);" class="connect-wallet btn btn-block btn-sm btn-primary">
+                    Connect Wallet
+                </a>
+                <a href="javascript:void(0);"
+                   style="display: none !important;"
+                   class="wallet-account only-show-on-mobile-login btn btn-block btn-sm btn-warning">
+                    0x0000...0000
+                </a>
+                <!--<li style="display: none;" class="wallet-account-li nav-item dropdown dropdown-animate" data-toggle="hover">
+
+                    <div class="dropdown-menu dropdown-menu-single">
+                        <div class="dropdown-divider"></div>
+                        <a href="javascript:void(0);" onclick="CommonPage.logout()" class="dropdown-item">Logout</a>
+                    </div>
+                </li>-->
+            </div>
+            <!--<div class="d-lg-none text-center">
                 <a href="javascript:void(0);" class="connect-wallet btn btn-block btn-sm btn-warning">
                     Connect Wallet
                 </a>
@@ -142,7 +175,7 @@
                    class="wallet-account btn btn-block btn-sm btn-warning">
                     0x0000...0000
                 </a>
-            </div>
+            </div>-->
         </div>
     </div>
 </nav>

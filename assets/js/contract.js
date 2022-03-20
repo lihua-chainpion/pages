@@ -132,6 +132,45 @@ class IttiContract extends BaseContract {
     return this.contract.methods.isWhite().call({from: ethereum.selectedAddress});
   }
 
+  /**
+   * get user account mapping
+   * @param account 用户地址
+   * @return {Promise<{_inviter: string, _type: string}>} 邀请人和身份类型
+   */
+  async nodeMappings(account) {
+    return this.contract.methods._nodeMappings(account).call({from: ethereum.selectedAddress});
+  }
+
+  /**
+   * 激活账号
+   * @param inviter
+   * @return {Promise<boolean>}
+   */
+  async activateAddress(inviter) {
+    if (!validator.isEthereumAddress(inviter + '')) {
+      return Promise.reject(new Error('The inviter account format is incorrect'));
+    }
+    if (!ethereum || !ethereum.selectedAddress) {
+      return Promise.reject(new Error('Wallet not yet connected'));
+    }
+    if (inviter.toLowerCase() === ethereum.selectedAddress.toLowerCase()) {
+      return Promise.reject(new Error('The inviter and the registered account cannot be the same'));
+    }
+    const inviterInfo = await this.nodeMappings(inviter);
+    console.log('inviterInfo:', inviterInfo);
+    try{
+      await this.contract.methods.activateAddress(inviter).send({
+        from: ethereum.selectedAddress,
+      });
+    }catch(err){
+      console.error('ittiContract.activateAddress err:', err);
+      if (err.code != 4001) {
+        return Promise.reject(err);
+      }
+      return Promise.resolve(false);
+    }
+  }
+
   // 换购
   async exchangeByUsdt(usdtAmount, onApproving, onApproved) {
     const amountOk = usdtAmount > 0;

@@ -36,6 +36,15 @@ class CommonPage {
     $('.my-copyright-year').text(new Date().getFullYear());
   }
 
+  static logout() {
+    console.log('退出登录')
+    const actNot = $('.connect-wallet');
+    const actOkLi = $('.wallet-account-li');
+    actOkLi.attr('style', 'display: none !important;');
+    $('.only-show-on-mobile-login').attr('style', 'display: none !important;');
+    actNot.show();
+  }
+
   appendModal() {
     $('body').prepend(`
       <!-- Modal -->

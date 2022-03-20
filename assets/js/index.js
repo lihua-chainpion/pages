@@ -11,10 +11,13 @@ class IndexPage {
       newAccount = newAccount.slice(0, 6) + '...' + newAccount.slice(-4);
     }
     const actNot = $('.connect-wallet');
+    const actOkLi = $('.wallet-account-li');
     const actOk = $('.wallet-account');
     actOk.text(newAccount);
-    actNot.remove();
-    actOk.show();
+    actNot.attr('style', 'display: none !important;');
+    !actOk.is(':visible') && actOk.show();
+    actOkLi.show();
+    $('.only-show-on-mobile-login').show();
   }
 
   connect() {
@@ -78,11 +81,11 @@ async function initHomePage() {
   const indexPage = new IndexPage();
   indexPage.connect();
 
-  const isWhite = await indexPage.itti.isWhite();
+  /*const isWhite = await indexPage.itti.isWhite();
   if (isWhite) {
     $('.invitation-section').show();
     new CommonPage().setInvitationLink('home');
-  }
+  }*/
 
   btnConnect.on('click', function () {
     indexPage.connect();

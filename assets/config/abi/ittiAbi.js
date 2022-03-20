@@ -70,8 +70,38 @@ function getIttiAbi() {
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "isWhite",
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_nodeMappings",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "_inviter",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_type",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "inviter",
+          "type": "address"
+        }
+      ],
+      "name": "activateAddress",
       "outputs": [
         {
           "internalType": "bool",
@@ -79,7 +109,7 @@ function getIttiAbi() {
           "type": "bool"
         }
       ],
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
   ];

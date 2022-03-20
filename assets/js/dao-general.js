@@ -11,10 +11,17 @@ class DaoGeneralPage {
       newAccount = newAccount.slice(0, 6) + '...' + newAccount.slice(-4);
     }
     const actNot = $('.connect-wallet');
+    const actOkLi = $('.wallet-account-li');
     const actOk = $('.wallet-account');
     actOk.text(newAccount);
+    actNot.attr('style', 'display: none !important;');
+    !actOk.is(':visible') && actOk.show();
+    actOkLi.show();
+    $('.only-show-on-mobile-login').show();
+    /*const actOk = $('.wallet-account');
+    actOk.text(newAccount);
     actNot.remove();
-    actOk.show();
+    actOk.show();*/
   }
 
   connect() {
@@ -78,13 +85,13 @@ async function initDaoGeneralPage() {
   const daoPage = new DaoGeneralPage();
   daoPage.connect();
 
-  const isWhite = await daoPage.itti.isWhite();
+  /*const isWhite = await daoPage.itti.isWhite();
   if (isWhite) {
     // $('.not-show-in-white').attr('style', 'display: none !important');
     // $('.only-show-in-white').show();
     $('.invitation-section').show();
     new CommonPage().setInvitationLink('dao');
-  }
+  }*/
 
   btnConnect.on('click', function () {
     daoPage.connect();
