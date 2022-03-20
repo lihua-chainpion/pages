@@ -43,8 +43,8 @@ class DaoGeneralPage {
     }
     Utils.setBtnLoading(btnClassname);
     try {
-      await this.itti.qualify(inviter);
-      new CommonPage().showSuccess('You are a DAO General now!');
+      const res = await this.itti.qualify(inviter);
+      res !== false && new CommonPage().showSuccess('You are a DAO General now!');
     } catch (err) {
       new CommonPage().showError(err.message || 'Subscription failed')
       console.error('getQualification err:', err)
