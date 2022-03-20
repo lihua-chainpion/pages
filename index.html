@@ -8,9 +8,8 @@
     <meta name="author" content="Webpixels">
     <title>EXCHANGE – USDT for ITTI</title>
     <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="preload" href="//at.alicdn.com/t/font_3261354_g1sgznyg8qg.woff2" as="font" type="font/woff2"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_3261354_g1sgznyg8qg.css">
+    <link rel="preload" href="assets/fonts/iconfont.woff2" as="font" type="font/woff2">
+    <link rel="stylesheet" href="assets/fonts/iconfont.css">
     <!-- Preloader -->
     <style>
         @keyframes hidePreloader {
@@ -116,11 +115,11 @@
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">Home</a>
+                <li class="nav-item nav-item-active">
+                    <a class="nav-link" href="javascript:void(0);" onclick="CommonPage.goToPage('home')">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dao-general.html">Dao General</a>
+                    <a class="nav-link" href="javascript:void(0);" onclick="CommonPage.goToPage('dao')">Dao General</a>
                 </li>
             </ul>
             <!-- Button -->
@@ -175,39 +174,49 @@
 <section class="slice py-7">
     <div class="container">
         <div class="row row-grid align-items-center">
-            <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
-                <!-- Image -->
+            <!--<div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                &lt;!&ndash; Image &ndash;&gt;
                 <figure class="w-100">
                     <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.svg"
                          class="img-fluid mw-md-120">
                 </figure>
-            </div>
-            <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+            </div>-->
+            <div class="col-12 order-md-1 pr-md-5">
                 <!-- Heading -->
-                <h1 class="display-4 text-center text-md-left mb-3">
-                    It's time to amplify your <strong class="text-primary">business</strong>
+                <h1 style="word-break: break-all;" class="mb-3 justify-content-start">
+                    <strong style="font-size: 1.5rem;" class="text-primary">Inviter: </strong>
+                    <span style="font-size: 1rem;" id="inviter-address" class="text-muted">0x--</span>
+                    <span style="font-size: 0.9rem;" id="inviter-type" class="badge bg-primary text-white">--</span>
+                </h1>
+                <h1 style="word-break: break-all;" class="mb-3 justify-content-start">
+                    <strong style="font-size: 1.5rem;" class="text-primary">Yourself: </strong>
+                    <span style="font-size: 1rem;" id="self-address" class="text-muted">0x--</span>
+                    <span style="font-size: 0.9rem;" id="self-type" data-type="--" class="badge bg-primary text-white">--</span>
                 </h1>
                 <!-- Text -->
-                <p class="lead text-center text-md-left text-muted">
-                    A lightweight, convenient website to exchange ITTI.
-                </p>
+                <!--<p style="word-break: break-all;" class="lead text-center text-md-left text-muted">
+                    0x8C19dE862D9473724A763e4DAC0a5bAB55E53722
+                </p>-->
                 <!-- Buttons -->
-                <div class="text-center text-md-left mt-5">
-                    <a href="#exchange-itti-section" class="btn btn-primary btn-icon">
-                        <span class="btn-inner--text">Exchange Itti</span>
-                        <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
-                    </a>
-                    <a href="javascript:void(0);"
-                       class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn">DAO General</a>
-                </div>
-                <!-- Text -->
-                <p class="lead text-center text-md-left text-muted mt-5 d-lg-none">
+                <p class="lead text-center text-md-left text-muted mt-1">
                     Have you not joined the whitelist for subscription yet?
                 </p>
-                <!-- Buttons -->
+                <div class="text-center text-md-left mt-1">
+                    <a href="javascript:void(0);" class="btn btn-primary btn-icon buy-eligibility-btn">
+                        <span class="btn-inner--text">Active</span>
+                        <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <!--<a href="javascript:void(0);"
+                       class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn">DAO General</a>-->
+                </div>
+                <!-- Text -->
+                <!--<p class="lead text-center text-md-left text-muted mt-5 d-lg-none">
+                    Have you not joined the whitelist for subscription yet?
+                </p>
+                &lt;!&ndash; Buttons &ndash;&gt;
                 <div class="text-center text-md-left mt-2 d-lg-none">
                     <a href="javascript:void(0);" class="btn btn-neutral btn-icon buy-eligibility-btn">DAO General</a>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

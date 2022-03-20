@@ -25,6 +25,7 @@ class IndexPage {
     BaseContract.connectWallet()
         .then(res => {
           _this._setAccount(ethereum.selectedAddress);
+          CommonPage.setInviterAddress();
         })
         .catch(err => {
           if (err.code != 4001) {
@@ -35,19 +36,19 @@ class IndexPage {
   }
 
   /**
-   * 购买认购资格
+   * 激活账户，绑定关系
    * @param inviter 邀请人账户地址
    * @return {Promise<void>}
    */
-  async getQualification(inviter) {
+  async activeAccount(inviter) {
     const btnClassname = 'buy-eligibility-btn'
     if (Utils.isBtnLoading(btnClassname)) {
       return;
     }
     Utils.setBtnLoading(btnClassname);
     try {
-      const res = await this.itti.qualify(inviter);
-      res !== false && new CommonPage().showSuccess('You are a DAO General now!');
+      const res = await this.itti.activateAddress(inviter);
+      res !== false && new CommonPage().showSuccess('Account activated successfully!');
     } catch (err) {
       if (err && err.receipt && err.receipt.status === false) {
         const {browserBaseUrl} = getConfig();
@@ -81,18 +82,22 @@ async function initHomePage() {
   const indexPage = new IndexPage();
   indexPage.connect();
 
-  /*const isWhite = await indexPage.itti.isWhite();
-  if (isWhite) {
-    $('.invitation-section').show();
-    new CommonPage().setInvitationLink('home');
-  }*/
+  const selfAddr = ethereum.selectedAddress;
+  if (selfAddr) {
+    indexPage.itti.nodeMappings(selfAddr).then(selfInfo => {
+      if (selfInfo._type) { // 'active' or other
+        $('.invitation-section').show();
+        new CommonPage().setInvitationLink('home');
+      }
+    });
+  }
 
   btnConnect.on('click', function () {
     indexPage.connect();
   });
   btnBuy.on('click', function () {
     const {inviter} = Utils.parseSearch();
-    indexPage.getQualification(inviter);
+    indexPage.activeAccount(inviter);
   });
   btnInvite.on('click', function () {
     indexPage.inviteNow();

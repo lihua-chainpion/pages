@@ -29,6 +29,7 @@ class DaoGeneralPage {
     BaseContract.connectWallet()
         .then(res => {
           _this._setAccount(ethereum.selectedAddress);
+          CommonPage.setInviterAddress();
         })
         .catch(err => {
           if (err.code != 4001) {
@@ -85,13 +86,15 @@ async function initDaoGeneralPage() {
   const daoPage = new DaoGeneralPage();
   daoPage.connect();
 
-  /*const isWhite = await daoPage.itti.isWhite();
-  if (isWhite) {
-    // $('.not-show-in-white').attr('style', 'display: none !important');
-    // $('.only-show-in-white').show();
-    $('.invitation-section').show();
-    new CommonPage().setInvitationLink('dao');
-  }*/
+  const selfAddr = ethereum.selectedAddress;
+  if (selfAddr) {
+    daoPage.itti.nodeMappings(selfAddr).then(selfInfo => {
+      if (selfInfo._type === 'sale') {
+        $('.invitation-section').show();
+        new CommonPage().setInvitationLink('dao');
+      }
+    });
+  }
 
   btnConnect.on('click', function () {
     daoPage.connect();

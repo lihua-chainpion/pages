@@ -8,9 +8,8 @@
     <meta name="author" content="Webpixels">
     <title>EXCHANGE – USDT for ITTI</title>
     <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="preload" href="//at.alicdn.com/t/font_3261354_g1sgznyg8qg.woff2" as="font" type="font/woff2"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_3261354_g1sgznyg8qg.css">
+    <link rel="preload" href="assets/fonts/iconfont.woff2" as="font" type="font/woff2">
+    <link rel="stylesheet" href="assets/fonts/iconfont.css">
     <!-- Preloader -->
     <style>
         @keyframes hidePreloader {
@@ -116,11 +115,11 @@
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.html">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" onclick="CommonPage.goToPage('home')">Home</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="dao-general.html">Dao General</a>
+                <li class="nav-item nav-item-active">
+                    <a class="nav-link" href="javascript:void(0);" onclick="CommonPage.goToPage('dao')">Dao General</a>
                 </li>
             </ul>
             <!-- Button -->
@@ -180,118 +179,67 @@
     </div>
 </nav>
 <div class="d-none d-md-block my-banner my-banner-pc">
-    <img src="assets/img/banner/ITTIbanner.jpg" alt="ITTI banner">
+    <img src="assets/img/banner/DAObanner.jpg" alt="DAO banner">
 </div>
 <div class="d-md-none my-banner my-banner-mobile">
-    <img src="assets/img/banner/ITTIbanner_m.jpg" alt="ITTI banner">
+    <img src="assets/img/banner/DAObanner_m.jpg" alt="DAO banner">
 </div>
 <!-- Main content -->
 <section class="slice py-7">
     <div class="container">
         <div class="row row-grid align-items-center">
-            <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
-                <!-- Image -->
+            <!--<div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                &lt;!&ndash; Image &ndash;&gt;
                 <figure class="w-100">
                     <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.svg"
                          class="img-fluid mw-md-120">
                 </figure>
-            </div>
-            <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+            </div>-->
+            <div class="col-12 order-md-1 pr-md-5">
                 <!-- Heading -->
-                <h1 class="display-4 text-center text-md-left mb-3">
-                    It's time to amplify your <strong class="text-primary">business</strong>
+                <h1 style="word-break: break-all;" class="mb-3 justify-content-start">
+                    <strong style="font-size: 1.5rem;" class="text-primary">Inviter: </strong>
+                    <span style="font-size: 1rem;" id="inviter-address" class="text-muted">0x--</span>
+                    <span style="font-size: 0.9rem;" id="inviter-type" class="badge bg-primary text-white">--</span>
+                </h1>
+                <h1 style="word-break: break-all;" class="mb-3 justify-content-start">
+                    <strong style="font-size: 1.5rem;" class="text-primary">Yourself: </strong>
+                    <span style="font-size: 1rem;" id="self-address" class="text-muted">0x--</span>
+                    <span style="font-size: 0.9rem;" id="self-type" data-type="--" class="badge bg-primary text-white">--</span>
                 </h1>
                 <!-- Text -->
-                <p class="lead text-center text-md-left text-muted">
+                <!--<p class="lead text-center text-md-left text-muted">
                     A lightweight, convenient website to exchange ITTI.
-                </p>
+                </p>-->
                 <!-- Buttons -->
-                <div class="text-center text-md-left mt-5">
-                    <a href="#exchange-itti-section" class="btn btn-primary btn-icon">
-                        <span class="btn-inner--text">Exchange Itti</span>
+                <p class="lead text-center text-md-left text-muted mt-1">
+                    Purchase DAO General
+                </p>
+                <div class="text-center text-md-left mt-1">
+                    <a href="javascript:void(0);" class="btn btn-primary btn-icon buy-eligibility-btn">
+                        <span class="btn-inner--text">Purchase</span>
                         <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                    </a>
+                    <!--<a href="javascript:void(0);"
+                       class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn">DAO General</a>-->
+                </div>
+                <!--<div class="text-center text-md-left mt-5">
+                    <a href="#exchange-itti-section" class="btn btn-primary btn-icon">
+                        <span class="btn-inner&#45;&#45;text">Exchange Itti</span>
+                        <span class="btn-inner&#45;&#45;icon"><i data-feather="chevron-right"></i></span>
                     </a>
                     <a href="javascript:void(0);" class="btn btn-neutral btn-icon d-none d-lg-inline-block buy-eligibility-btn not-show-in-white">DAO General</a>
                     <a href="index.html" style="display: none !important;" class="btn btn-neutral btn-icon d-none d-lg-inline-block only-show-in-white">Go Home</a>
                 </div>
-                <!-- Text -->
+                &lt;!&ndash; Text &ndash;&gt;
                 <p class="lead text-center text-md-left text-muted mt-5 d-lg-none not-show-in-white">
                     Have you not joined the whitelist for subscription yet?
                 </p>
-                <!-- Buttons -->
+                &lt;!&ndash; Buttons &ndash;&gt;
                 <div class="text-center text-md-left mt-2 d-lg-none">
                     <a href="javascript:void(0);" class="btn btn-neutral btn-icon buy-eligibility-btn not-show-in-white">DAO General</a>
                     <a href="index.html" style="display: none !important;" class="btn btn-neutral btn-icon only-show-in-white">Go Home</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="exchange-itti-section" class="slice pt-lg-6 pb-0 pb-lg-6 bg-section-secondary">
-    <div class="container">
-        <!-- Title -->
-        <!-- Section title -->
-        <div class="row mb-5 justify-content-center text-center">
-            <div class="col-lg-6">
-                <!--                    <span class="badge badge-soft-success badge-pill badge-lg">-->
-                <!--                        Get started-->
-                <!--                    </span>-->
-                <h2 class=" mt-4">Exchange USDT for ITTI</h2>
-                <!--                <div class="mt-2">-->
-                <!--                    <p class="lead lh-180">Use Atomic Design to build components, sections and, then, pages.</p>-->
-                <!--                </div>-->
-            </div>
-        </div>
-        <!-- Card -->
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body pb-5">
-                        <div class="pt-4 pb-3">
-                            <form>
-                                <div class="row justify-content-end">
-                                    <div class="form-group col-md-6" style="position: relative;padding-bottom: 0.75rem;">
-                                        <label class="form-control-label">Estimated USDT amount</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                            <span class="input-group-text"
-                                                  style="width: 50px;height: 50px;padding: 0.25rem;">
-                                                <img style="width: 100%;height: 100%;object-fit: contain;"
-                                                     src="assets/img/exchange/usdt_logo.png">
-                                            </span>
-                                            </div>
-                                            <input type="number" class="form-control" id="usdt-amount"
-                                                   placeholder="Enter the number of estimated usdt">
-                                        </div>
-                                        <div id="amount-zero-warning" style="display: none;">Amount should be greater than 0</div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-control-label">Estimated ITTI amount</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                            <span class="input-group-text"
-                                                  style="width: 50px;height: 50px;padding: 0.25rem;">
-                                                <img style="width: 100%;height: 100%;object-fit: contain;"
-                                                     src="assets/img/exchange/itti_goldcion.png">
-                                            </span>
-                                            </div>
-                                            <input type="number" class="form-control" id="itti-amount"
-                                                   placeholder="Enter the number of estimated itti">
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 col-md-3">
-                                        <button type="button" class="btn btn-block btn-primary exchange-confirm-btn">
-                                            Confirm
-                                        </button>
-                                    </div>
-                                    <p class="mt-2" style="color: #E59D37">*Please note that due to price fluctuations,
-                                        the
-                                        estimated itti amount does not represent the final purchased itti amount.</p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -312,7 +260,7 @@
                 <div class="col-md-10 text-center">
                     <div class="mt-4 mb-6">
                         <h2 class="h1 text-white">
-                            Invite Your Friend
+                            Invite DAO General
                         </h2>
                         <h4 class="text-white mt-3 justify-content-start">
                             <span id="user-invitation" style="word-break: break-all;"></span>

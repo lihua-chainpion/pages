@@ -16,6 +16,44 @@ class CommonPage {
     }
   }
 
+  static async setInviterAddress() {
+    const itti = new IttiContract();
+    const {inviter} = Utils.parseSearch();
+    $('#inviter-address').text(inviter || '--');
+    const selfAddr = ethereum.selectedAddress;
+    $('#self-address').text(selfAddr || '--');
+
+    if (inviter) {
+      itti.nodeMappings(inviter).then(inviterInfo => {
+        $('#inviter-type').text(inviterInfo._type || '--');
+        // console.log('inv:', inviterInfo);
+      });
+    }
+
+    if (selfAddr) {
+      itti.nodeMappings(selfAddr).then(selfInfo => {
+        $('#self-type').text(selfInfo._type || '--');
+        // console.log('self:', selfInfo);
+      });
+    }
+  }
+
+  static goToPage(type) {
+    let toUrl = location.origin;
+    switch (type) {
+      case 'home':
+        toUrl += ('/pages/index.html' + location.search);
+        break
+      case 'dao':
+        toUrl += ('/pages/dao-general.html' + location.search);
+        break
+      default:
+        toUrl += ('/pages/index.html' + location.search);
+        break
+    }
+    window.location.href = toUrl;
+  }
+
   setInvitationLink(type) {
     let link;
     switch (type) {
