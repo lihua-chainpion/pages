@@ -1,12 +1,7 @@
-(function importLibs() {
-  const bd = $('body')
-  bd.append(`<script src="assets/libs/clipboard.min.js"></script>`);
-})();
-
-class DelegatePage {
+class IndexPage {
   constructor() {
     if (!this.itti) {
-      DelegatePage.prototype.itti = new IttiContract();
+      IndexPage.prototype.itti = new IttiContract();
     }
   }
 
@@ -58,33 +53,30 @@ class DelegatePage {
   }
 
   inviteNow() {
-    const inviteLink = this.itti.inviteLink;
+    const inviteLink = this.itti.inviteLinks.home;
     Utils.copyText('invite-now-btn', inviteLink).then(res => {
-      new CommonPage().showSuccess(inviteLink, 'Invitation link copied!');
+      // new CommonPage().showSuccess(inviteLink, 'Invitation link copied!');
     });
   }
 }
 
-function initEvents() {
+$(document).ready(function () {
   const btnConnect = $('.connect-wallet');
   const btnBuy = $('.buy-eligibility-btn');
   const btnInvite = $('.invite-now-btn');
 
-  const delegate = new DelegatePage();
-  delegate.connect();
+  const indexPage = new IndexPage();
+  indexPage.connect();
+  new CommonPage().setInvitationLink('home');
 
   btnConnect.on('click', function () {
-    delegate.connect();
+    indexPage.connect();
   });
-  btnBuy.on('click', function () {
+  /*btnBuy.on('click', function () {
     const {inviter} = Utils.parseSearch();
-    delegate.getQualification(inviter);
-  });
+    indexPage.getQualification(inviter);
+  });*/
   btnInvite.on('click', function () {
-    delegate.inviteNow();
-  })
-}
-
-$(document).ready(function () {
-  initEvents();
+    indexPage.inviteNow();
+  });
 });

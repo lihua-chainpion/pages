@@ -1,5 +1,6 @@
 (function importLibs() {
   const bd = $('body')
+  bd.append(`<script src="assets/libs/clipboard.min.js"></script>`);
   bd.append(`<script src="assets/config/abi/ittiAbi.js"></script>`);
   bd.append(`<script src="assets/config/abi/usdtAbi.js"></script>`);
   bd.append(`<script src="assets/config/config.js"></script>`);
@@ -8,12 +9,35 @@
 })();
 
 class CommonPage {
+
+  constructor() {
+    if (!this.itti) {
+      CommonPage.prototype.itti = new IttiContract();
+    }
+  }
+
+  setInvitationLink(type) {
+    let link;
+    switch (type) {
+      case 'home':
+        link = this.itti.inviteLinks.home;
+        break
+      case 'dao':
+        link = this.itti.inviteLinks.dao;
+        break
+      default:
+        link = this.itti.inviteLinks.home;
+        break
+    }
+    $('#user-invitation').text(link);
+  }
+
   setCopyrightYear() {
     $('.my-copyright-year').text(new Date().getFullYear());
   }
 
   appendModal() {
-    $('body').append(`
+    $('body').prepend(`
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

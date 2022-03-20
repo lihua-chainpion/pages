@@ -1,0 +1,11 @@
+.my-banner img {
+  width: 100%;
+  object-fit: contain;
+}
+#amount-zero-warning {
+  position: absolute;
+  right: 1rem;
+  text-align: right;
+  color: #e92043;
+  font-style: italic;
+}

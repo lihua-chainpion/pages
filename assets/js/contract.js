@@ -15,7 +15,7 @@ class BaseContract {
     }
     const isUnlocked = await ethereum._metamask.isUnlocked();
     if (!isUnlocked) {
-      return Promise.reject(new Error('MetaMask has not been unlocked'));
+      return Promise.reject(new Error('MetaMask has been locked'));
     }
     // switch if not the right chain
     const {chainId} = config;
@@ -113,16 +113,30 @@ class IttiContract extends BaseContract {
     }
   }
 
-  get inviteLink() {
-    const {inviteBaseUrl} = config.ittiContract;
-    return `${inviteBaseUrl}${ethereum.selectedAddress}`;
+  get inviteLinks() {
+    const {homeInviteBaseUrl, daoInviteBaseUrl} = config.ittiContract;
+    return {
+      home: `${homeInviteBaseUrl}${ethereum.selectedAddress}`,
+      dao: `${daoInviteBaseUrl}${ethereum.selectedAddress}`,
+    };
+  }
+
+  async getPrice() {
+    const n = await this.contract.methods._currentPrice_numerator().call({from: ethereum.selectedAddress});
+    const m = await this.contract.methods._currentPrice_denominator().call({from: ethereum.selectedAddress});
+    // console.log('n, m:', n, m);
+    return n / m;
+  }
+
+  async isWhite() {
+    return this.contract.methods.isWhite().call({from: ethereum.selectedAddress});
   }
 
   // 换购
   async exchangeByUsdt(usdtAmount, onApproving, onApproved) {
     const amountOk = usdtAmount > 0;
     if (!amountOk) {
-      return Promise.reject(new Error('The redemption amount needs to be greater than 0'));
+      return Promise.reject(new Error('The USDT amount needs to be greater than 0'));
     }
     const amount = web3.utils.toWei(usdtAmount.toString(), 'ether');
     try{
