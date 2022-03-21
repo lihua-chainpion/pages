@@ -84,8 +84,12 @@ async function initHomePage() {
 
   const selfAddr = ethereum.selectedAddress;
   if (selfAddr) {
+    const selfAllowed = {
+      delegate: true,
+      active: true,
+    }
     indexPage.itti.nodeMappings(selfAddr).then(selfInfo => {
-      if (selfInfo._type) { // 'active' or other
+      if (selfAllowed[selfInfo._type]) {
         $('.invitation-section').show();
         new CommonPage().setInvitationLink('home');
       }

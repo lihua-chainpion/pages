@@ -23,17 +23,34 @@ class CommonPage {
     const selfAddr = ethereum.selectedAddress;
     $('#self-address').text(selfAddr || '--');
 
-    if (inviter) {
+    /*if (inviter) {
       itti.nodeMappings(inviter).then(inviterInfo => {
         $('#inviter-type').text(inviterInfo._type || '--');
         // console.log('inv:', inviterInfo);
       });
-    }
+    }*/
 
     if (selfAddr) {
       itti.nodeMappings(selfAddr).then(selfInfo => {
-        $('#self-type').text(selfInfo._type || '--');
+        // 首页
+        if (selfInfo._type === 'delegate' || selfInfo._type === 'active') {
+          $('#active-info').text('Your account is already activated');
+          $('.active-btn').attr('disabled', true);
+        } else if (selfInfo._type) {
+          $('#active-info').text('Your account is not allowed to complete the action');
+          $('.active-btn').attr('disabled', true);
+        }
+        // $('#self-type').text(selfInfo._type || '--');
         // console.log('self:', selfInfo);
+
+        // dao页面
+        if (selfInfo._type === 'sale') {
+          $('#dao-active-info').text('You have already become a Dao General');
+          $('.dao-purchase-btn').attr('disabled', true);
+        } else if (selfInfo._type) {
+          $('#dao-active-info').text('Your account is not allowed to complete the action');
+          $('.dao-purchase-btn').attr('disabled', true);
+        }
       });
     }
   }

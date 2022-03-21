@@ -191,7 +191,11 @@ class IttiContract extends BaseContract {
   // 换购
   async exchangeByUsdt(usdtAmount, onApproving, onApproved) {
     const selfInfo = await this.nodeMappings(ethereum.selectedAddress);
-    if (!selfInfo._type) { // if empty, need active
+    const selfAllowed = {
+      delegate: true,
+      active: true,
+    }
+    if (!selfAllowed[selfInfo._type]) {
       return Promise.reject(new Error('Your account is not allowed to complete the action'));
     }
     const amountOk = usdtAmount > 0;
