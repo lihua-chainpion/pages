@@ -62,6 +62,7 @@ class IndexPage {
     try {
       const res = await this.itti.activateAddress(inviter);
       res !== false && new CommonPage().showSuccess('Account activated successfully!');
+      this.connect();
     } catch (err) {
       if (err && err.receipt && err.receipt.status === false) {
         const {browserBaseUrl} = getConfig();

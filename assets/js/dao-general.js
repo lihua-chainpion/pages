@@ -63,7 +63,8 @@ class DaoGeneralPage {
     try {
       const res = await this.itti.qualify(inviter);
       res !== false && new CommonPage().showSuccess('You are a DAO General now!');
-      CommonPage.setInviterAddress();
+      // CommonPage.setInviterAddress();
+      this.connect();
     } catch (err) {
       if (err && err.receipt && err.receipt.status === false) {
         const {browserBaseUrl} = getConfig();
