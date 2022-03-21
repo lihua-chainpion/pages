@@ -30,6 +30,16 @@ class DaoGeneralPage {
         .then(res => {
           _this._setAccount(ethereum.selectedAddress);
           CommonPage.setInviterAddress();
+          const selfAddr = ethereum.selectedAddress;
+          if (selfAddr) {
+            _this.itti.nodeMappings(selfAddr).then(selfInfo => {
+              console.log('dao selfInfo:', selfInfo);
+              if (selfInfo._type === 'sale') {
+                $('.invitation-section').show();
+                new CommonPage().setInvitationLink('dao');
+              }
+            });
+          }
         })
         .catch(err => {
           if (err.code != 4001) {
@@ -53,6 +63,7 @@ class DaoGeneralPage {
     try {
       const res = await this.itti.qualify(inviter);
       res !== false && new CommonPage().showSuccess('You are a DAO General now!');
+      CommonPage.setInviterAddress();
     } catch (err) {
       if (err && err.receipt && err.receipt.status === false) {
         const {browserBaseUrl} = getConfig();
@@ -78,23 +89,13 @@ class DaoGeneralPage {
   }
 }
 
-async function initDaoGeneralPage() {
+function initDaoGeneralPage() {
   const btnConnect = $('.connect-wallet');
   const btnBuy = $('.buy-eligibility-btn');
   const btnInvite = $('.invite-now-btn');
 
   const daoPage = new DaoGeneralPage();
   daoPage.connect();
-
-  const selfAddr = ethereum.selectedAddress;
-  if (selfAddr) {
-    daoPage.itti.nodeMappings(selfAddr).then(selfInfo => {
-      if (selfInfo._type === 'sale') {
-        $('.invitation-section').show();
-        new CommonPage().setInvitationLink('dao');
-      }
-    });
-  }
 
   btnConnect.on('click', function () {
     daoPage.connect();
@@ -109,5 +110,6 @@ async function initDaoGeneralPage() {
 }
 
 $(document).ready(function () {
+  console.log('abc dao ready')
   initDaoGeneralPage();
 });

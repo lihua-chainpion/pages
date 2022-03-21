@@ -26,6 +26,19 @@ class IndexPage {
         .then(res => {
           _this._setAccount(ethereum.selectedAddress);
           CommonPage.setInviterAddress();
+          const selfAddr = ethereum.selectedAddress;
+          if (selfAddr) {
+            const selfAllowed = {
+              delegate: true,
+              active: true,
+            }
+            _this.itti.nodeMappings(selfAddr).then(selfInfo => {
+              if (selfAllowed[selfInfo._type]) {
+                $('.invitation-section').show();
+                new CommonPage().setInvitationLink('home');
+              }
+            });
+          }
         })
         .catch(err => {
           if (err.code != 4001) {
@@ -81,20 +94,6 @@ async function initHomePage() {
 
   const indexPage = new IndexPage();
   indexPage.connect();
-
-  const selfAddr = ethereum.selectedAddress;
-  if (selfAddr) {
-    const selfAllowed = {
-      delegate: true,
-      active: true,
-    }
-    indexPage.itti.nodeMappings(selfAddr).then(selfInfo => {
-      if (selfAllowed[selfInfo._type]) {
-        $('.invitation-section').show();
-        new CommonPage().setInvitationLink('home');
-      }
-    });
-  }
 
   btnConnect.on('click', function () {
     indexPage.connect();
